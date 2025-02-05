@@ -1,0 +1,80 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: rgba(255, 221, 225, 0.8);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #d6336c;
+    backdrop-filter: blur(10px);
+}
+
+h1, h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff4081;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+}
+
+#no-btn {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+#hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 30%, 80% 100%, 50% 80%, 20% 100%, 0% 30%);
+    opacity: 0.8;
+    animation: floatHearts 5s linear infinite;
+}

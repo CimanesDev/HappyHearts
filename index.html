@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riza, Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="landing" class="screen">
+        <h1>Riza, I made something special for you... but first, a little game! ❤️</h1>
+        <button onclick="startQuiz()">Start</button>
+    </div>
+
+    <div id="quiz" class="screen hidden">
+        <div id="question-container"></div>
+    </div>
+
+    <div id="final-question" class="screen hidden">
+        <h1>Riza, Will You Be My Valentine? 💖</h1>
+        <button id="yes-btn" onclick="showCelebration()">Yes</button>
+        <button id="no-btn" onclick="avoidClick(this)">No</button>
+    </div>
+
+    <div id="celebration" class="screen hidden">
+        <h1>Yay! I knew you’d say yes! 🎉</h1>
+        <p>You make me the happiest guy in the world. Can't wait to spend Valentine’s with you! ❤️</p>
+    </div>
+    <div id="hearts"></div>
+</body>
+</html>

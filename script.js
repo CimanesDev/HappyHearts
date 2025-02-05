@@ -1,14 +1,22 @@
 const questions = [ 
     { question: "What’s my favorite thing about you?", answers: ["Your smile", "Your kindness", "Everything", "Your eyes"], correct: "Everything" },
     { question: "Where was our first date?", answers: ["MOA", "Binondo", "Rob", "Intramuros"], correct: "MOA" },
-    { question: "Where did we first meet?", answers: ["Rob", "SSWC", "CAS", "CD"], correct: "SSWC" }
+    { question: "Where did we first meet?", answers: ["Rob", "SSWC", "CAS", "CD"], correct: "SSWC" },
+    { question: "Wow! ang galing naman. Want more questions?", answers: ["No", "Ayaw", "Habo", "YESSS"], correct: "YESSS" }
 ];
 
 let currentQuestion = 0;
 
+document.getElementById("start-btn").addEventListener("click", function() {
+    let song = new Audio("lover.mp3");
+    song.volume = 0.2;
+    song.play();
+    song.loop = true;
+});
+
+
 function startQuiz() {
-    document.getElementById("landing").classList.add("hidden");
-    document.getElementById("quiz").classList.remove("hidden");
+    transitionScreens("landing", "quiz");
     showQuestion();
 }
 
@@ -21,9 +29,7 @@ function showQuestion() {
         const btn = document.createElement("button");
         btn.innerText = answer;
         btn.onclick = () => checkAnswer(answer);
-        btn.style.fontSize = "18px";
-        btn.style.margin = "10px";
-        btn.style.padding = "10px 20px";
+        btn.classList.add("answer-btn");
         answersDiv.appendChild(btn);
     });
     questionContainer.appendChild(answersDiv);
@@ -42,15 +48,22 @@ function nextQuestion() {
     if (currentQuestion < questions.length) {
         showQuestion();
     } else {
-        document.getElementById("quiz").classList.add("hidden");
-        document.getElementById("final-question").classList.remove("hidden");
+        transitionScreens("quiz", "final-question");
     }
 }
 
 function showCelebration() {
-    document.getElementById("final-question").classList.add("hidden");
-    document.getElementById("celebration").classList.remove("hidden");
+    transitionScreens("final-question", "celebration");
     createFloatingHearts();
+}
+
+function transitionScreens(hideScreen, showScreen) {
+    document.getElementById(hideScreen).classList.add("fade-out");
+    setTimeout(() => {
+        document.getElementById(hideScreen).classList.add("hidden");
+        document.getElementById(showScreen).classList.remove("hidden");
+        document.getElementById(showScreen).classList.add("fade-in");
+    }, 500); 
 }
 
 function createFloatingHearts() {
@@ -64,3 +77,4 @@ function createFloatingHearts() {
         setTimeout(() => heart.remove(), 5000);
     }
 }
+

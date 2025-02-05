@@ -21,9 +21,9 @@ function showQuestion() {
         const btn = document.createElement("button");
         btn.innerText = answer;
         btn.onclick = () => checkAnswer(answer);
-        btn.style.fontSize = "24px";
-        btn.style.margin = "15px";
-        btn.style.padding = "15px 30px";
+        btn.style.fontSize = "18px";
+        btn.style.margin = "10px";
+        btn.style.padding = "10px 20px";
         answersDiv.appendChild(btn);
     });
     questionContainer.appendChild(answersDiv);
@@ -33,7 +33,7 @@ function checkAnswer(answer) {
     if (answer === questions[currentQuestion].correct) {
         nextQuestion();
     } else {
-        alert("Oops! That’s not quite right. Try again!");
+        alert("Grrr! bat di mo alam hmppp. Try again!!!");
     }
 }
 
